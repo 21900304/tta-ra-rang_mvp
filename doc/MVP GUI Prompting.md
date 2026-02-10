@@ -8,10 +8,10 @@
 - UI Components: shadcn/ui (Card, Button, Progress, Dialog, Badge, Alert 등 사용)
 - Icons: Lucide-react
 - Color Palette (PRD 기반): 
-  - Primary: Sky Blue (#87CEEB) - 신뢰와 청결함
-  - Point: Sunny Yellow (#FFD700) - 학생들의 활기
-  - Success: Mint Green (#98FB98) - 긍정적인 피드백
-  - Background: Soft Grey (#F8F9FA) - 눈의 피로도 감소
+  - Primary: Energy Royal Blue (#005EB8) - 신뢰와 청결함
+  - Point: Action Amber (#FFB81C) - 학생들의 활기
+  - Success: Primary Red (#D5281B) - 긍정적인 피드백(제한적 사용)
+  - Background: Soft Grey (#F3F3F3) - 눈의 피로도 감소
 
 ## 2. 핵심 UI/UX 원칙
 - 대상: 특수학급 교사(운영) 및 학생(시청)
@@ -25,13 +25,15 @@
 - 로그인이 없는 구조이므로 바로 '수업 시작하기' 버튼 노출
 
 ### [Page 2: Setup]
-- 운동 선택: 스쿼트-푸쉬업-버피 시퀀스 카드형 UI
+- 클래스 선택: 스쿼트-푸쉬업-버피 시퀀스 카드형 UI
 - 인원 설정: 1~6명 선택 가능한 넘버 피커 또는 버튼 그룹
 - 화면 제어: '학생용 창 열기' 버튼 (클릭 시 window.open()을 모방한 알림 또는 팝업 레이아웃 노출)
 
 ### [Page 3: Calibration]
 - 웹캠 영역 (Placeholder)과 학생 위치 가이드라인 표시
 - 캐릭터 매칭 섹션: 인식된 인원별로 캐릭터가 할당되는 시각적 피드백 제공
+- 캐릭터 디자인이 확정되지 않았으므로, 캐릭터가 노출될 영역은 다음과 같이 처리합니다.
+  - **Placeholder**: 2D 아바타 아이콘이나 심플한 원형 도형으로 대체
 
 ### [Page 4: Play Mode (Dual Layout)]
 - Teacher View: 운동 제어 버튼(Pause/Resume/Next), 학생별 실시간 달성도 리스트
