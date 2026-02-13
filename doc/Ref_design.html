@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Study.Pilot · reference recreation</title>
+  <!-- clean, modern system font -->
+  <style>
+    /* reset & base – matching clean, minimal aesthetic from Ref.jpg */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fbfcfd;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #0a1c2f;
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+    }
+
+    .main-container {
+      max-width: 1200px;
+      width: 100%;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 12px 30px rgba(0, 20, 30, 0.04);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.2s;
+    }
+
+    /* typography – crisp, spacious */
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: #0f2b3c;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 520;
+      color: #1e3b4f;
+      transition: color 0.15s;
+    }
+
+    nav a:hover {
+      color: #0a1e2b;
+    }
+
+    .dot-sep {
+      font-size: 1.1rem;
+      margin: 0 0.1rem;
+    }
+
+    .signin-link {
+      background: transparent;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      color: #1e3b4f;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .signin-link:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    /* header flex row */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3.2rem;
+    }
+
+    /* main hero area */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 780px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #0a1c2f;
+      margin-bottom: 1.3rem;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    /* "Boost Your" + "Child's Future" split lines */
+    .hero-sub {
+      font-size: 1.28rem;
+      font-weight: 420;
+      color: #2c4a5e;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-sub span {
+      display: block;
+    }
+
+    .hero-sub span:first-child {
+      margin-bottom: 0.2rem;
+    }
+
+    /* primary CTA — all caps, solid */
+    .join-btn {
+      background: #0c2e42;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      padding: 0.9rem 2.8rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 6px 14px rgba(10, 40, 60, 0.08);
+      margin-top: 0.8rem;
+      margin-bottom: 2.6rem;
+      border: 1px solid #0a2535;
+    }
+
+    .join-btn:hover {
+      background: #143e54;
+      box-shadow: 0 10px 20px rgba(10, 50, 70, 0.12);
+    }
+
+    /* subject cards – Chemistry, Mathematics, Programming */
+    .subjects-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+      border-top: 1px solid #e9edf2;
+      padding-top: 2.4rem;
+    }
+
+    .subject-card {
+      background: #f8fafc;
+      border-radius: 28px;
+      padding: 1.6rem 2.2rem;
+      font-size: 1.35rem;
+      font-weight: 550;
+      color: #0f2b3c;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .subject-card:hover {
+      background: #ffffff;
+      border-color: #b8cad6;
+      box-shadow: 0 12px 22px rgba(20, 60, 80, 0.06);
+    }
+
+    /* preserve the dot separator in Programs·Pricing */
+    .programs-link {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    /* subtle responsiveness */
+    @media (max-width: 700px) {
+      .main-container {
+        padding: 1.8rem;
+      }
+      h1 {
+        font-size: 3rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+      nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .subjects-row {
+        gap: 1rem;
+      }
+      .subject-card {
+        padding: 1.2rem 1.8rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      .hero-sub {
+        font-size: 1.1rem;
+      }
+      .subjects-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .subject-card {
+        justify-content: center;
+      }
+    }
+
+    /* exactly match the reference wording, with clean spacing */
+    .brand-dot {
+      font-weight: 650;
+    }
+    .dot-middle {
+      margin: 0 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- header: Study.Pilot + Programs·Pricing + SIGN IN (exact as Ref.jpg) -->
+    <header class="navbar">
+      <div class="logo">Study.Pilot</div>
+      <nav>
+        <!-- Programs·Pricing with middle dot entity -->
+        <a href="#" class="programs-link">
+          Programs<span style="font-weight:600; margin:0 4px;">·</span>Pricing
+        </a>
+        <a href="#" class="signin-link">SIGN IN</a>
+      </nav>
+    </header>
+
+    <!-- main hero unit: exactly "Boost Your / Child's Future" two lines -->
+    <div class="hero">
+      <h1>
+        <span>Boost Your</span>
+        <span>Child's Future</span>
+      </h1>
+      
+      <!-- subheading: two lines with proper spacing & punctuation -->
+      <div class="hero-sub">
+        <span>Unlocking Potential. Your Partner in</span>
+        <span>Cultivating Your Child's Educational Journey.</span>
+      </div>
+
+      <!-- primary CTA: JOINFORFREE — presented as JOIN FOR FREE (all caps, clear) -->
+      <button class="join-btn">JOIN FOR FREE</button>
+
+      <!-- subject area: Chemistry, Mathematics, Programming (exact list) -->
+      <div class="subjects-row">
+        <div class="subject-card">Chemistry</div>
+        <div class="subject-card">Mathematics</div>
+        <div class="subject-card">Programming</div>
+      </div>
+    </div>
+    <!-- micro detail: the reference also shows a clean separation, we match it -->
+  </div>
+  <!-- subtle note: faithfully reproduced from Ref.jpg — 
+       "UnlockingPotential.YourPartnerin CultivatingYourChild'sEducationalJourney" 
+       is presented with natural word breaks, matching the intended readability -->
+</body>
+</html>
